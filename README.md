@@ -1,6 +1,6 @@
 # flutter_study
 
-A new Flutter module.
+学习flutter项目.
 
 ## Getting Started
 
