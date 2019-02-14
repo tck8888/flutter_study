@@ -9,29 +9,46 @@ class DoctorListItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: EdgeInsets.all(15),
+      padding: EdgeInsets.only(left: 15,right: 15,top: 15),
       color: Colors.white,
-      child: Row(
+      child: Column(
         children: <Widget>[
-          ClipOval(
-            child: Image.network(
-              doctor.avatar,
-              width: 45,
-              height: 45,
+          Padding(
+            padding: EdgeInsets.only(bottom: 15),
+            child: Row(
+              children: <Widget>[
+                ClipOval(
+                  child: Image.network(
+                    doctor.avatar,
+                    width: 45,
+                    height: 45,
+                  ),
+                ),
+                Expanded(
+                    flex: 1,
+                    child: Container(
+                      padding: EdgeInsets.only(left: 10),
+                      child: Text(
+                        doctor.name,
+                        style: TextStyle(color: Color(0xff333740)),
+                      ),
+                    )),
+                FlatButton(
+                  child: Text("取消关注"),
+                  textColor: Color(0xffa5a9ad),
+                  splashColor: null,
+                  highlightColor: null,
+                  shape: RoundedRectangleBorder(
+                      side: BorderSide(color: Color(0xffd1d3d6), width: 0.5),
+                      borderRadius: BorderRadius.all(Radius.circular(2))),
+                  onPressed: () {},
+                ),
+              ],
             ),
           ),
-          Text(
-            doctor.name,
-            style: TextStyle(color: Color(0xff333740)),
-          ),
-          OutlineButton(
-            child: Text("取消关注"),
-            textColor: Color(0xffa5a9ad),
-            shape: RoundedRectangleBorder(
-                side: BorderSide(color: Color(0xffd1d3d6), width: 0.5),
-                borderRadius: BorderRadius.all(Radius.circular(1))),
-            onPressed: () {},
-          ),
+          Divider(
+            height: 0.5, color: Color(0xffebebeb),
+          )
         ],
       ),
     );
