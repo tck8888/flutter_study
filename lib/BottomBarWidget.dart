@@ -5,7 +5,6 @@ import 'package:flutter_study/SitePage.dart';
 import 'package:flutter_study/MessagePage.dart';
 import 'package:flutter_study/MyPage.dart';
 
-import 'EachView.dart';
 
 class BottomBarWidget extends StatefulWidget {
   @override
