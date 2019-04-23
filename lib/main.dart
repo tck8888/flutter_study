@@ -4,6 +4,7 @@ import 'package:flutter_study/study_widget/bottom_navigation_bar_study.dart';
 import 'package:flutter_study/study_widget/list_view_study.dart';
 import 'package:flutter_study/study_widget/basic_study.dart';
 import 'package:flutter_study/study_widget/layout_study.dart';
+import 'package:flutter_study/study_widget/view_page_study.dart';
 
 void main() => runApp(MyApp());
 
@@ -22,12 +23,10 @@ class MyApp extends StatelessWidget {
 }
 
 class Home extends StatelessWidget {
-
-
   @override
   Widget build(BuildContext context) {
     return DefaultTabController(
-        length: 3,
+        length: 4,
         child: Scaffold(
           backgroundColor: Colors.grey[100],
           appBar: AppBar(
@@ -58,12 +57,16 @@ class Home extends StatelessWidget {
                     ),
                     Tab(
                       icon: Icon(Icons.directions_bike),
-                    )
+                    ),
+                    Tab(
+                      icon: Icon(Icons.view_quilt),
+                    ),
                   ])),
           body: TabBarView(children: [
             ListViewStudy(),
             BasicStudy(),
-          LayoutStudy()
+            LayoutStudy(),
+            ViewPageStudy(),
           ]),
           drawer: DrawerStudy(),
           bottomNavigationBar: BottomNavigationBarStudy(),
