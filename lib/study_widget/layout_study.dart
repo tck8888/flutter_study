@@ -7,6 +7,39 @@ class LayoutStudy extends StatelessWidget {
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: <Widget>[
+
+        ],
+      ),
+    );
+  }
+}
+
+class AspectRatioStudy extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: <Widget>[
+          AspectRatio(
+            aspectRatio: 16/9.0,
+            child: Container(
+              color: Color.fromRGBO(3, 54, 255, 1.0),
+            ),
+          )
+        ],
+      ),
+    );
+  }
+}
+
+class StackStudy extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: <Widget>[
           Stack(
             alignment: Alignment.topLeft,
             children: <Widget>[
@@ -39,11 +72,11 @@ class LayoutStudy extends StatelessWidget {
                   ),
                   decoration: BoxDecoration(
                     shape: BoxShape.circle,
-                      gradient: RadialGradient(colors: [
-                         Color.fromRGBO(7, 102, 255, 1.0),
-                         Color.fromRGBO(3, 54, 255, 1.0),
-                      ]),
-                      color: Color.fromRGBO(3, 54, 255, 1.0),),
+                    gradient: RadialGradient(colors: [
+                      Color.fromRGBO(7, 102, 255, 1.0),
+                      Color.fromRGBO(3, 54, 255, 1.0),
+                    ]),
+                    color: Color.fromRGBO(3, 54, 255, 1.0),),
                 ),
               ),
               Positioned(
@@ -88,6 +121,7 @@ class LayoutStudy extends StatelessWidget {
     );
   }
 }
+
 
 class IconBadge extends StatelessWidget {
   final IconData icon;
