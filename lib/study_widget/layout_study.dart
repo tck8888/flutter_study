@@ -7,7 +7,15 @@ class LayoutStudy extends StatelessWidget {
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: <Widget>[
-
+          ConstrainedBox(
+            constraints:BoxConstraints(
+              minHeight: 200,
+              maxWidth: 200,
+            ),
+            child: Container(
+              color: Color.fromRGBO(3, 54, 255, 1.0),
+            ),
+          )
         ],
       ),
     );
@@ -22,7 +30,7 @@ class AspectRatioStudy extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.center,
         children: <Widget>[
           AspectRatio(
-            aspectRatio: 16/9.0,
+            aspectRatio: 16 / 9.0,
             child: Container(
               color: Color.fromRGBO(3, 54, 255, 1.0),
             ),
