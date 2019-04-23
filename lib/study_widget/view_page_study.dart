@@ -1,11 +1,34 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_study/model/home_list_bean.dart';
 class ViewPageStudy extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return GridViewExtentStudy();
+    return GridViewBuildStudy();
   }
 
 
+}
+
+class GridViewBuildStudy extends StatelessWidget {
+
+  Widget _buildItem(BuildContext context,int index){
+    return Container(
+      child: Image.network(posts[index].imageUrl,fit: BoxFit.cover,),
+    );
+  }
+  @override
+  Widget build(BuildContext context) {
+    return GridView.builder(
+      padding: EdgeInsets.all(4.0),
+itemCount: posts.length,
+      itemBuilder: _buildItem,
+      gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+          crossAxisCount: 2,
+        crossAxisSpacing: 8,
+        mainAxisSpacing: 8
+      ),
+    );
+  }
 }
 
 class GridViewExtentStudy extends StatelessWidget {
@@ -35,6 +58,7 @@ class GridViewExtentStudy extends StatelessWidget {
     );
   }
 }
+
 class GridViewCountStudy extends StatelessWidget {
 
   List<Widget> _buildItem(int count){
