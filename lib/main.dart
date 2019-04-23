@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_study/study_widget/drawer_study.dart';
+import 'package:flutter_study/study_widget/bottom_navigation_bar_study.dart';
+import 'package:flutter_study/study_widget/list_view_study.dart';
 
 void main() => runApp(MyApp());
 
@@ -18,6 +20,8 @@ class MyApp extends StatelessWidget {
 }
 
 class Home extends StatelessWidget {
+
+
   @override
   Widget build(BuildContext context) {
     return DefaultTabController(
@@ -55,11 +59,7 @@ class Home extends StatelessWidget {
                     )
                   ])),
           body: TabBarView(children: [
-            Icon(
-              Icons.local_florist,
-              size: 128.0,
-              color: Colors.black12,
-            ),
+            ListViewStudy(),
             Icon(
               Icons.change_history,
               size: 128.0,
@@ -72,6 +72,7 @@ class Home extends StatelessWidget {
             ),
           ]),
           drawer: DrawerStudy(),
+          bottomNavigationBar: BottomNavigationBarStudy(),
         ));
   }
 }
