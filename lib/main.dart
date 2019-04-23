@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_study/study_widget/list_view_study.dart';
+import 'package:flutter_study/study_widget/drawer_study.dart';
 
 void main() => runApp(MyApp());
 
@@ -8,9 +8,11 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
         debugShowCheckedModeBanner: false,
-        theme: ThemeData(primarySwatch: Colors.yellow,
-            highlightColor: Color.fromRGBO(255, 255, 255, 0.5),
-        splashColor: Colors.white70,),
+        theme: ThemeData(
+          primarySwatch: Colors.yellow,
+          highlightColor: Color.fromRGBO(255, 255, 255, 0.5),
+          splashColor: Colors.white70,
+        ),
         home: Home());
   }
 }
@@ -23,43 +25,53 @@ class Home extends StatelessWidget {
         child: Scaffold(
           backgroundColor: Colors.grey[100],
           appBar: AppBar(
-            leading: IconButton(
-              icon: Icon(
-                Icons.menu,
-              ),
-              onPressed: () => {debugPrint('Navigation button is pressed')},
-              tooltip: "Navigation",
-            ),
-            actions: <Widget>[
-              IconButton(
-                icon: Icon(
-                  Icons.search,
+              actions: <Widget>[
+                IconButton(
+                  icon: Icon(
+                    Icons.search,
+                  ),
+                  onPressed: () => {debugPrint('search button is pressed')},
+                  tooltip: "Search",
                 ),
-                onPressed: () => {debugPrint('search button is pressed')},
-                tooltip: "Search",
+              ],
+              title: Text(
+                "Study_flutter",
               ),
-            ],
-            title: Text(
-              "Study_flutter",
-            ),
-            elevation: 0.0,
-            bottom: TabBar(
-                unselectedLabelColor: Colors.black38,
-                indicatorColor: Colors.black54,
-                indicatorSize: TabBarIndicatorSize.label,
-                indicatorWeight: 1.0,
-                tabs:[
-              Tab(icon: Icon(Icons.local_florist),),
-              Tab(icon: Icon(Icons.change_history),),
-              Tab(icon: Icon(Icons.directions_bike),)
-            ]),
-          ),
+              elevation: 0.0,
+              bottom: TabBar(
+                  unselectedLabelColor: Colors.black38,
+                  indicatorColor: Colors.black54,
+                  indicatorSize: TabBarIndicatorSize.label,
+                  indicatorWeight: 1.0,
+                  tabs: [
+                    Tab(
+                      icon: Icon(Icons.local_florist),
+                    ),
+                    Tab(
+                      icon: Icon(Icons.change_history),
+                    ),
+                    Tab(
+                      icon: Icon(Icons.directions_bike),
+                    )
+                  ])),
           body: TabBarView(children: [
-            Icon(Icons.local_florist,size: 128.0, color: Colors.black12,),
-            Icon(Icons.change_history,size: 128.0, color: Colors.black12,),
-            Icon(Icons.directions_bike,size: 128.0, color: Colors.black12,),
+            Icon(
+              Icons.local_florist,
+              size: 128.0,
+              color: Colors.black12,
+            ),
+            Icon(
+              Icons.change_history,
+              size: 128.0,
+              color: Colors.black12,
+            ),
+            Icon(
+              Icons.directions_bike,
+              size: 128.0,
+              color: Colors.black12,
+            ),
           ]),
-        )
-    );
+          drawer: DrawerStudy(),
+        ));
   }
 }
