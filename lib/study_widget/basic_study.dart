@@ -1,11 +1,60 @@
 import 'package:flutter/material.dart';
 
 class BasicStudy extends StatelessWidget {
-
-
   @override
   Widget build(BuildContext context) {
-    return RichTextStudy();
+    return ContainerStudy();
+  }
+}
+
+class ContainerStudy extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      decoration: BoxDecoration(
+          image: DecorationImage(
+        image:
+            NetworkImage("http://qiniu.yaoyanshe.com/36471548057116_.pic.jpg"),
+        alignment: Alignment.topCenter,
+            fit: BoxFit.cover,
+      )),
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: <Widget>[
+          Container(
+            decoration: BoxDecoration(
+                color: Color.fromRGBO(3, 54, 255, 1.0),
+                //borderRadius: BorderRadius.circular(16),
+                boxShadow: [
+                  BoxShadow(
+                    offset: Offset(0.0, 16.0),
+                    color: Color.fromRGBO(16, 20, 188, 1.0),
+                    blurRadius: 25,
+                    spreadRadius: -9.0,
+                  ),
+                ],
+                shape: BoxShape.circle,
+//              gradient: RadialGradient(colors: [
+//                Color.fromRGBO(7, 102, 255, 1.0),
+//                Color.fromRGBO(3, 28, 128, 1.0),
+//              ]),
+                gradient: LinearGradient(colors: [
+                  Color.fromRGBO(7, 102, 255, 1.0),
+                  Color.fromRGBO(3, 28, 128, 1.0),
+                ], begin: Alignment.topCenter, end: Alignment.bottomCenter)),
+            padding: EdgeInsets.all(16.0),
+            margin: EdgeInsets.all(8.0),
+            width: 90.0,
+            height: 90.0,
+            child: Icon(
+              Icons.pool,
+              size: 32.0,
+              color: Colors.white,
+            ),
+          )
+        ],
+      ),
+    );
   }
 }
 
@@ -29,33 +78,27 @@ class RichTextStudy extends StatelessWidget {
   Widget build(BuildContext context) {
     return RichText(
       text: TextSpan(
-        text: _title,
-        style: TextStyle(
-          color: Colors.deepPurpleAccent,
-          fontSize: 34.0,
-          fontStyle: FontStyle.italic,
-          fontWeight: FontWeight.w100
-        ),
-        children: [
-          TextSpan(
-            text: _author,
-            style: TextStyle(
-                color: Colors.grey,
-                fontSize: 17.0,
-                fontStyle: FontStyle.italic,
-                fontWeight: FontWeight.w100
-            ),
-
-          )
-        ]
-      ),
+          text: _title,
+          style: TextStyle(
+              color: Colors.deepPurpleAccent,
+              fontSize: 34.0,
+              fontStyle: FontStyle.italic,
+              fontWeight: FontWeight.w100),
+          children: [
+            TextSpan(
+              text: _author,
+              style: TextStyle(
+                  color: Colors.grey,
+                  fontSize: 17.0,
+                  fontStyle: FontStyle.italic,
+                  fontWeight: FontWeight.w100),
+            )
+          ]),
     );
   }
 }
 
-
 class NormalTextStudy extends StatelessWidget {
-
   final TextStyle _textStyle = TextStyle(
     fontSize: 16.0,
   );

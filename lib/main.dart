@@ -40,7 +40,7 @@ class Home extends StatelessWidget {
                 ),
               ],
               title: Text(
-                "Study_flutter",
+                "flutter",
               ),
               elevation: 0.0,
               bottom: TabBar(
