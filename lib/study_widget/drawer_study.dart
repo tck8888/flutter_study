@@ -19,6 +19,12 @@ class DrawerStudy extends StatelessWidget {
             currentAccountPicture:CircleAvatar(
               backgroundImage: NetworkImage("https://avatars3.githubusercontent.com/u/22141186?s=460&v=4"),
             ) ,
+            decoration: BoxDecoration(
+              color: Colors.yellow[400],
+              image: DecorationImage(
+                  image: NetworkImage("http://qiniu.yaoyanshe.com/36471548057116_.pic.jpg"),
+                  fit: BoxFit.cover),
+            ),
           ),
           ListTile(
             title: Text(
