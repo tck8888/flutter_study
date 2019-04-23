@@ -1,65 +1,69 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_study/study_widget/list_view_study.dart';
 
-void main() => runApp(MyApp());
-
-class MyApp extends StatelessWidget {
+class DrawerStudy extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-        debugShowCheckedModeBanner: false,
-        theme: ThemeData(primarySwatch: Colors.yellow,
-            highlightColor: Color.fromRGBO(255, 255, 255, 0.5),
-        splashColor: Colors.white70,),
-        home: Home());
-  }
-}
-
-class Home extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return DefaultTabController(
-        length: 3,
-        child: Scaffold(
-          backgroundColor: Colors.grey[100],
-          appBar: AppBar(
-            leading: IconButton(
-              icon: Icon(
-                Icons.menu,
-              ),
-              onPressed: () => {debugPrint('Navigation button is pressed')},
-              tooltip: "Navigation",
+    return  Drawer(
+      child: ListView(
+        padding: EdgeInsets.zero,
+        children: <Widget>[
+          UserAccountsDrawerHeader(
+            accountName: Text(
+              "tck",
+              style: TextStyle(fontWeight: FontWeight.bold),
             ),
-            actions: <Widget>[
-              IconButton(
-                icon: Icon(
-                  Icons.search,
-                ),
-                onPressed: () => {debugPrint('search button is pressed')},
-                tooltip: "Search",
-              ),
-            ],
-            title: Text(
-              "Study_flutter",
+            accountEmail:Text(
+              "tck6666@163.com",
+              style: TextStyle(fontWeight: FontWeight.bold),
             ),
-            elevation: 0.0,
-            bottom: TabBar(
-                unselectedLabelColor: Colors.black38,
-                indicatorColor: Colors.black54,
-                indicatorSize: TabBarIndicatorSize.label,
-                indicatorWeight: 1.0,
-                tabs:[
-              Tab(icon: Icon(Icons.local_florist),),
-              Tab(icon: Icon(Icons.change_history),),
-              Tab(icon: Icon(Icons.directions_bike),)
-            ]),
+            currentAccountPicture:CircleAvatar(
+              backgroundImage: NetworkImage("https://avatars3.githubusercontent.com/u/22141186?s=460&v=4"),
+            ) ,
+            decoration: BoxDecoration(
+              color: Colors.yellow[400],
+              image: DecorationImage(
+                  image: NetworkImage("http://qiniu.yaoyanshe.com/36471548057116_.pic.jpg"),
+                  fit: BoxFit.cover),
+            ),
           ),
-          body: TabBarView(children: [
-            Icon(Icons.local_florist,size: 128.0, color: Colors.black12,),
-            Icon(Icons.change_history,size: 128.0, color: Colors.black12,),
-            Icon(Icons.directions_bike,size: 128.0, color: Colors.black12,),
-          ]),
-        )
+          ListTile(
+            title: Text(
+              "message",
+              style: Theme.of(context).textTheme.title,
+            ),
+            leading: Icon(
+              Icons.message,
+              color: Colors.black12,
+              size: 22.0,
+            ),
+            onTap: ()=>Navigator.pop(context),
+          ),
+          ListTile(
+            title: Text(
+              "Favorite",
+              style: Theme.of(context).textTheme.title,
+            ),
+            leading: Icon(
+              Icons.favorite,
+              color: Colors.black12,
+              size: 22.0,
+            ),
+            onTap: ()=>Navigator.pop(context),
+          ),
+          ListTile(
+            title: Text(
+              "Settings",
+              style: Theme.of(context).textTheme.title,
+            ),
+            leading: Icon(
+              Icons.settings,
+              color: Colors.black12,
+              size: 22.0,
+            ),
+            onTap: ()=>Navigator.pop(context),
+          )
+        ],
+      ),
     );
   }
 }
