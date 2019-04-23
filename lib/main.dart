@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_study/study_widget/drawer_study.dart';
 import 'package:flutter_study/study_widget/bottom_navigation_bar_study.dart';
 import 'package:flutter_study/study_widget/list_view_study.dart';
+import 'package:flutter_study/study_widget/basic_study.dart';
 
 void main() => runApp(MyApp());
 
@@ -60,11 +61,7 @@ class Home extends StatelessWidget {
                   ])),
           body: TabBarView(children: [
             ListViewStudy(),
-            Icon(
-              Icons.change_history,
-              size: 128.0,
-              color: Colors.black12,
-            ),
+            BasicStudy(),
             Icon(
               Icons.directions_bike,
               size: 128.0,
