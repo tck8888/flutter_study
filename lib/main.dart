@@ -5,6 +5,8 @@ import 'package:flutter_study/study_widget/list_view_study.dart';
 import 'package:flutter_study/study_widget/basic_study.dart';
 import 'package:flutter_study/study_widget/layout_study.dart';
 import 'package:flutter_study/study_widget/view_page_study.dart';
+import 'package:flutter_study/study_widget/sliver_study.dart';
+
 
 void main() => runApp(MyApp());
 
@@ -18,7 +20,7 @@ class MyApp extends StatelessWidget {
           highlightColor: Color.fromRGBO(255, 255, 255, 0.5),
           splashColor: Colors.white70,
         ),
-        home: Home());
+        home: SliverStudy());
   }
 }
 
