@@ -7,6 +7,7 @@ import 'package:flutter_study/study_widget/layout_study.dart';
 import 'package:flutter_study/study_widget/view_page_study.dart';
 import 'package:flutter_study/study_widget/sliver_study.dart';
 import 'package:flutter_study/study_widget/navigator_study.dart';
+import 'package:flutter_study/study_widget/form_study.dart';
 
 
 void main() => runApp(MyApp());
@@ -20,11 +21,13 @@ class MyApp extends StatelessWidget {
           primarySwatch: Colors.yellow,
           highlightColor: Color.fromRGBO(255, 255, 255, 0.5),
           splashColor: Colors.white70,
+          accentColor:Color.fromRGBO(3, 54, 255, 1.0),
         ),
-        initialRoute: '/',
+        initialRoute: '/form',
         routes: {
           '/':(context)=>Home(),
-          '/about':(context)=>Page(title: "About")
+          '/about':(context)=>Page(title: "About"),
+          '/form':(context)=>FormStudy(),
         },
     );
   }
