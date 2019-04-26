@@ -4,6 +4,7 @@ import 'package:flutter_study/study_widget/bottom_navigation_bar_study.dart';
 import 'package:flutter_study/study_widget/list_view_study.dart';
 import 'package:flutter_study/study_widget/basic_study.dart';
 import 'package:flutter_study/study_widget/layout_study.dart';
+import 'package:flutter_study/study_widget/state/state_management_study.dart';
 import 'package:flutter_study/study_widget/view_page_study.dart';
 import 'package:flutter_study/study_widget/sliver_study.dart';
 import 'package:flutter_study/study_widget/navigator_study.dart';
@@ -24,12 +25,13 @@ class MyApp extends StatelessWidget {
           splashColor: Colors.white70,
           accentColor:Color.fromRGBO(3, 54, 255, 1.0),
         ),
-        initialRoute: '/mdc',
+        initialRoute: '/state_management',
         routes: {
           '/':(context)=>Home(),
           '/about':(context)=>Page(title: "About"),
           '/form':(context)=>FormStudy(),
           '/mdc':(context)=>MaterialComponents(),
+          '/state_management':(context)=>StateManagementStudy(),
         },
     );
   }
