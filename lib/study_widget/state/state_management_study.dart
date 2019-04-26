@@ -1,41 +1,31 @@
 import 'package:flutter/material.dart';
 
-class StateManagementStudy extends StatefulWidget {
-  @override
-  _StateManagementStudyState createState() => _StateManagementStudyState();
-}
+import 'package:scoped_model/scoped_model.dart';
 
-class _StateManagementStudyState extends State<StateManagementStudy> {
-  int count = 0;
-
+class StateManagementStudy extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return CounterProvider(
-      count: count,
-      increaseCount: _increaseCount,
+    return ScopedModel(
+      model: CounterModel(),
       child: Scaffold(
         appBar: AppBar(
           title: Text("StateManagementStudy"),
           elevation: 0,
         ),
         body: CounterWrapper(),
-        floatingActionButton: FloatingActionButton(
-          onPressed:_increaseCount,
-          child: Icon(Icons.add),
+        floatingActionButton: ScopedModelDescendant<CounterModel>(
+          rebuildOnChange: false,
+          builder: (context, _, model) => FloatingActionButton(
+                onPressed: model.increaseCount,
+                child: Icon(Icons.add),
+              ),
         ),
       ),
     );
   }
-
-  void _increaseCount(){
-    setState(() {
-      count++;
-    });
-  }
 }
 
 class CounterWrapper extends StatelessWidget {
-
   @override
   Widget build(BuildContext context) {
     return Center(
@@ -45,26 +35,24 @@ class CounterWrapper extends StatelessWidget {
 }
 
 class Counter extends StatelessWidget {
-
-
   @override
   Widget build(BuildContext context) {
-    final int count=CounterProvider.of(context).count;
-    final VoidCallback increaseCount=CounterProvider.of(context).increaseCount;
-    return ActionChip(label: Text("$count"),onPressed: increaseCount,);
+    return ScopedModelDescendant<CounterModel>(
+      builder: (context,_,model)=> ActionChip(
+        label: Text("${model.count}"),
+        onPressed: model.increaseCount,
+      ),
+    );
   }
 }
 
-class CounterProvider extends InheritedWidget{
-
+class CounterProvider extends InheritedWidget {
   final int count;
   final VoidCallback increaseCount;
   final Widget child;
-  CounterProvider({
-    key,
-    this.count,
-    this.increaseCount,
-    this.child}) : super(key: key,child:child);
+
+  CounterProvider({key, this.count, this.increaseCount, this.child})
+      : super(key: key, child: child);
 
   @override
   bool updateShouldNotify(InheritedWidget oldWidget) {
@@ -72,8 +60,17 @@ class CounterProvider extends InheritedWidget{
     return true;
   }
 
-  static CounterProvider of(BuildContext context)=>
+  static CounterProvider of(BuildContext context) =>
       context.inheritFromWidgetOfExactType(CounterProvider);
+}
 
+class CounterModel extends Model {
+  int _count=1;
 
+  int get count => _count;
+
+  void increaseCount() {
+    _count++;
+    notifyListeners();
+  }
 }
