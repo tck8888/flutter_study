@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_study/study_widget/bloc/bloc_demo.dart';
 import 'package:flutter_study/study_widget/drawer_study.dart';
 import 'package:flutter_study/study_widget/bottom_navigation_bar_study.dart';
 import 'package:flutter_study/study_widget/list_view_study.dart';
@@ -26,7 +27,7 @@ class MyApp extends StatelessWidget {
           splashColor: Colors.white70,
           accentColor:Color.fromRGBO(3, 54, 255, 1.0),
         ),
-        initialRoute: '/stream',
+        initialRoute: '/bloc',
         routes: {
           '/':(context)=>Home(),
           '/about':(context)=>Page(title: "About"),
@@ -34,6 +35,7 @@ class MyApp extends StatelessWidget {
           '/mdc':(context)=>MaterialComponents(),
           '/state_management':(context)=>StateManagementStudy(),
           '/stream':(context)=>StreamStudy(),
+          '/bloc':(context)=>BlocDemo(),
         },
     );
   }
